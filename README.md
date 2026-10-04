@@ -16,13 +16,12 @@ No PowerToys runner, settings application, shell extensions, services, or other
 utility executables are included. Awake does need some shared PowerToys libraries
 and the bundled .NET runtime. The ARM64 output is approximately 205 MiB.
 
-## One-line install (private preview)
+## One-line install
 
-In Windows PowerShell, with [GitHub CLI](https://cli.github.com/) installed and
-signed in to an account with access to this private repo:
+Run in Windows PowerShell; no GitHub account or GitHub CLI is required:
 
 ```powershell
-& ([scriptblock]::Create((gh api repos/benjweaver/powertoys-individual/contents/Install.ps1?ref=v0.1.0 -H 'Accept: application/vnd.github.raw+json' | Out-String))) -Apps Awake
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/benjweaver/powertoys-individual/v0.1.1/Install.ps1))) -Apps Awake
 ```
 
 The installer detects ARM64/x64, downloads only the selected app's portable
@@ -36,11 +35,6 @@ No admin rights or Python/7-Zip are needed to install the prebuilt package.
 `-Apps` accepts a list, but **Awake is the only currently supported utility**;
 unknown names are rejected before downloading or changing anything. Additional
 utilities need a package recipe and validation before being added to the catalog.
-
-For a new Windows machine, install GitHub CLI once with
-`winget install --id GitHub.cli -e`, reopen PowerShell, and authenticate with
-`gh auth login` using its browser flow. The private preview relies on that
-existing sign-in and never asks for a password or copies credentials to the VM.
 
 ## Build
 
@@ -140,3 +134,9 @@ initializes the native menu without running or installing the PowerToys suite.
 It hides only Awake's allocated console and preserves the native Exit option.
 Settings are stored in `%LOCALAPPDATA%\Microsoft\PowerToys\Awake\settings.json`.
 An independently running Awake from another installation is refused.
+
+## License
+
+Project scripts are [MIT licensed](LICENSE). Microsoft PowerToys retains its
+original MIT license; bundled dependencies retain their own licenses and notices
+in each package’s `third-party` directory.

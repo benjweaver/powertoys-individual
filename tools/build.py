@@ -184,7 +184,7 @@ def build(args):
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(root / relative, destination)
         project = Path(__file__).resolve().parent.parent
-        for name in ('Awake.cmd', 'README-portable.txt', 'Set-Startup.ps1', 'Start-Awake.ps1', 'Enable Startup.cmd', 'Disable Startup.cmd', 'Startup Status.cmd'):
+        for name in ('LICENSE', 'Awake.cmd', 'README-portable.txt', 'Set-Startup.ps1', 'Start-Awake.ps1', 'Enable Startup.cmd', 'Disable Startup.cmd', 'Startup Status.cmd'):
             shutil.copyfile(project / name, args.output / name)
         shutil.copytree(project / 'third-party', args.output / 'third-party')
         for name in ('License.rtf', 'Notice.md'):

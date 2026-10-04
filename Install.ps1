@@ -6,14 +6,15 @@ param(
     [string]$PackageDirectory
 )
 $ErrorActionPreference = 'Stop'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 if ($env:OS -ne 'Windows_NT') { throw 'This installer runs on Windows only.' }
 $repository = 'benjweaver/powertoys-individual'
-$release = 'v0.1.0'
+$release = 'v0.1.1'
 # Add utilities only after their standalone launch/dependency tests pass.
 $catalog = @{
     Awake = @{
-        arm64 = '37ed13af57d51529e9a4c7c2798fa87135ccd80decba0de7506cfff35804e4a0'
-        x64 = '2b906cbdc3da90cefe379b28f2acc9c462a2e1e17c8160d055f938d1b7a588b1'
+        arm64 = '9d55cb3fdadedce8ea6f6d40bd33c2c75469cc5abba65892e6cf51cbdaeb8a8a'
+        x64 = '69dc87cd98c360d4290425a7bade8b794a0e84fb02c58ad1f36b4701bf053871'
     }
 }
 $selected = @($Apps | ForEach-Object { $_.Trim().ToLowerInvariant() } | Select-Object -Unique)
@@ -24,9 +25,6 @@ foreach ($app in $selected) {
 $architecture = [Environment]::GetEnvironmentVariable('PROCESSOR_ARCHITECTURE', 'Machine').ToLowerInvariant()
 if ($architecture -eq 'amd64') { $architecture = 'x64' }
 if ($architecture -notin @('arm64','x64')) { throw "Unsupported Windows architecture: $architecture" }
-if (-not $PackageDirectory -and -not (Get-Command gh -ErrorAction SilentlyContinue)) {
-    throw 'This private release requires GitHub CLI (gh) signed in to an account with repository access.'
-}
 $InstallRoot = [IO.Path]::GetFullPath($InstallRoot).TrimEnd('\')
 $existing = @(Get-Process -Name PowerToys.Awake -ErrorAction SilentlyContinue)
 if (@($existing | Where-Object { $_.Path -notlike ($InstallRoot + '\*') }).Count) {
@@ -56,8 +54,8 @@ try {
         if ($PackageDirectory) {
             Copy-Item -LiteralPath (Join-Path $PackageDirectory $name) -Destination $archive
         } else {
-            & gh release download $release --repo $repository --pattern $name --dir $temp
-            if ($LASTEXITCODE -ne 0) { throw 'Download failed. Check GitHub CLI sign-in and repository access.' }
+            $url = 'https://github.com/' + $repository + '/releases/download/' + $release + '/' + $name
+            Invoke-WebRequest -Uri $url -OutFile $archive -UseBasicParsing
         }
         if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne $catalog.Awake[$architecture]) { throw 'Release archive SHA-256 mismatch.' }
         $expanded = Join-Path $temp 'expanded'
