@@ -1,0 +1,18 @@
+{
+  "arm64": {
+    "files": 310,
+    "payload_bytes": 215081773,
+    "inventory": "passed",
+    "exe_architecture": "passed",
+    "other_powertoys_executables": "none",
+    "windows_runtime": "pending: SSH connection timed out"
+  },
+  "x64": {
+    "files": 311,
+    "payload_bytes": 199179791,
+    "inventory": "passed",
+    "exe_architecture": "passed",
+    "other_powertoys_executables": "none",
+    "windows_runtime": "pending: SSH connection timed out"
+  }
+}

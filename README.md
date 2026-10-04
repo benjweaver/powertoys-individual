@@ -8,7 +8,7 @@ Microsoft product.
 ## Status
 
 - Awake ARM64: extraction and dependency inventory verified; Windows runtime test pending.
-- Awake x64: recipe available; validation pending.
+- Awake x64: extraction and dependency inventory verified; Windows runtime test pending.
 - Other utilities: not supported yet. Each needs its own dependency and standalone-launch review.
 
 The suite installer is downloaded as a source archive, **never executed**.
