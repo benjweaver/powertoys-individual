@@ -8,7 +8,8 @@ Microsoft product.
 ## Status
 
 - Awake ARM64: validated in the Windows 11 UTM VM, including desktop launch, power requests, timed expiry, startup Off, hidden console, and On/Off behavior.
-- Awake x64: desktop launch and power-request smoke test passed under Windows 11 ARM64 emulation. Native x64 hardware and startup are not yet tested.
+- Awake x64: installation succeeded in a user-reported test on an x86-family Windows machine. Desktop launch and power-request smoke tests also passed under Windows 11 ARM64 emulation. Startup on that machine has not yet been reported.
+- 32-bit x86 packages are not provided; the installer supports x64 and ARM64.
 - Other utilities: not supported yet. Each needs its own dependency and standalone-launch review.
 
 The suite installer is downloaded as a source archive, **never executed**.
