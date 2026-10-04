@@ -5,7 +5,7 @@
     "inventory": "passed",
     "exe_architecture": "passed",
     "other_powertoys_executables": "none",
-    "windows_runtime": "pending: SSH connection timed out"
+    "windows_runtime": "passed: native ARM64 desktop, timed expiry, startup Off, hidden console, On/Off"
   },
   "x64": {
     "files": 311,
@@ -13,6 +13,6 @@
     "inventory": "passed",
     "exe_architecture": "passed",
     "other_powertoys_executables": "none",
-    "windows_runtime": "pending: SSH connection timed out"
+    "windows_runtime": "passed: desktop smoke test under ARM64 x64 emulation"
   }
 }

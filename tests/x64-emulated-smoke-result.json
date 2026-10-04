@@ -1,0 +1,13 @@
+﻿{
+    "version":  "0.101.2362.0",
+    "architecture":  "x64",
+    "hashes":  "passed",
+    "microsoft_signature":  "passed",
+    "only_awake":  "passed",
+    "started":  true,
+    "power_request":  true,
+    "pid_exit":  true,
+    "power_plan_unchanged":  true,
+    "checked_at_utc":  "2026-10-04T01:11:06.5843955Z",
+    "status":  "passed"
+}

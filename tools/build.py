@@ -184,7 +184,7 @@ def build(args):
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(root / relative, destination)
         project = Path(__file__).resolve().parent.parent
-        for name in ('Awake.cmd', 'README-portable.txt'):
+        for name in ('Awake.cmd', 'README-portable.txt', 'Set-Startup.ps1', 'Start-Awake.ps1', 'Enable Startup.cmd', 'Disable Startup.cmd', 'Startup Status.cmd'):
             shutil.copyfile(project / name, args.output / name)
         shutil.copytree(project / 'third-party', args.output / 'third-party')
         for name in ('License.rtf', 'Notice.md'):
@@ -194,6 +194,7 @@ def build(args):
             'utility': 'Awake', 'version': VERSION, 'architecture': args.arch,
             'source': url, 'installer_sha256': digest, 'files': inventory,
             'runtime_tested': False,
+            'launcher_files': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in args.output.iterdir() if p.suffix in ('.cmd', '.ps1')},
         }, indent=2) + '\n')
         print(f'Packaged {len(selected)} payload files; {sum((args.output/p).stat().st_size for p in selected)/1024**2:.1f} MiB')
 

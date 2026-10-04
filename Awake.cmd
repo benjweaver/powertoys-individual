@@ -1,8 +1,8 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+set "AWAKE_PACKAGE_DIRECTORY=%~dp0"
 if "%~1"=="" (
-  start "" "%~dp0PowerToys.Awake.exe"
+  powershell.exe -NoProfile -WindowStyle Hidden -Command "& ([scriptblock]::Create((Get-Content -LiteralPath (Join-Path $env:AWAKE_PACKAGE_DIRECTORY 'Start-Awake.ps1') -Raw))) -PackageDirectory $env:AWAKE_PACKAGE_DIRECTORY"
 ) else (
   start "" "%~dp0PowerToys.Awake.exe" %*
 )

@@ -7,8 +7,8 @@ Microsoft product.
 
 ## Status
 
-- Awake ARM64: extraction and dependency inventory verified; Windows runtime test pending.
-- Awake x64: extraction and dependency inventory verified; Windows runtime test pending.
+- Awake ARM64: validated in the Windows 11 UTM VM, including desktop launch, power requests, timed expiry, startup Off, hidden console, and On/Off behavior.
+- Awake x64: desktop launch and power-request smoke test passed under Windows 11 ARM64 emulation. Native x64 hardware and startup are not yet tested.
 - Other utilities: not supported yet. Each needs its own dependency and standalone-launch review.
 
 The suite installer is downloaded as a source archive, **never executed**.
@@ -34,8 +34,19 @@ Existing output directories are never overwritten.
 
 ## Use on Windows
 
-Copy the whole output folder to Windows. Double-click `Awake.cmd`, then right-click
-the Awake tray icon to select a mode or exit. From a terminal:
+Copy the whole output folder to its final location on Windows. Double-click
+`Awake.cmd`: it opens the tray app **Off**. Click the tray icon and select
+**Keep awake indefinitely** to turn it On, or **Off** to allow normal sleep.
+Timed modes and Exit are also available. This uses Awake's native menu; both
+left and right clicks open it. The debug console is hidden.
+
+Double-click **Enable Startup.cmd** to start it automatically when you sign in.
+It always resets to **Off** at sign-in, including if it was On last time.
+**Disable Startup.cmd** removes only this package's per-user startup shortcut.
+**Startup Status.cmd** checks the setting. Move the folder before enabling startup;
+if you move it later, re-enable startup from its new location.
+
+Advanced command-line mode bypasses the menu launcher; for example:
 
 ```bat
 Awake.cmd --time-limit=3600 --display-on=true
@@ -43,7 +54,8 @@ Awake.cmd --time-limit=3600 --display-on=true
 
 No admin access or PowerToys installation is needed. Keep the files together.
 Awake can write logs/settings to its normal local app-data directory. To remove
-it, exit Awake and remove its package folder. There is no auto-start registration.
+it, disable startup, exit Awake through the tray, and remove its package folder.
+Startup is enabled in the test VM; new packages require the user to enable it.
 For command-line behavior see [Microsoft's Awake documentation](https://learn.microsoft.com/en-us/windows/powertoys/awake).
 
 ## Validate
@@ -55,15 +67,22 @@ python3 -m unittest discover -s tests
 Inside the Windows 11 UTM VM, with existing Awake/PowerToys closed:
 
 ```powershell
-powershell -NoProfile -File tests\smoke.ps1 -Package dist\Awake-arm64 -RequirePowerRequest -Report smoke-result.json
+& ([scriptblock]::Create((Get-Content tests\Invoke-DesktopSmoke.ps1 -Raw))) -Package dist\Awake-arm64 -Report smoke-result.json -SmokeScript tests\smoke.ps1
 ```
 
 The smoke test checks all payload hashes, Microsoft's executable signature,
 absence of other PowerToys apps, successful launch, a Windows power request,
 exit when the bound process ends, and that the active power plan is unchanged.
-It only cleans up processes it starts. For desktop/tray verification, launch
-`Awake.cmd` in the signed-in user's desktop session (SSH launches aren't visible
-there). Physical sleep prevention and lock-screen behavior need a separate manual
+It only cleans up processes it starts. The helper creates and removes a temporary interactive scheduled task so the
+test runs in the signed-in desktop session. The user must be signed in. SSH
+processes run in a different session and do not establish desktop power behavior.
+No execution-policy setting is changed.
+
+After enabling startup and rebooting, test startup and On/Off behavior with:
+
+```powershell
+& ([scriptblock]::Create((Get-Content tests\Invoke-DesktopSmoke.ps1 -Raw))) -Package dist\Awake-arm64 -Report startup-result.json -SmokeScript tests\startup.ps1 -StartupTest
+``` Physical sleep prevention and lock-screen behavior need a separate manual
 check; a VM cannot establish behavior on physical hardware.
 
 ## How extraction works
@@ -85,3 +104,13 @@ work without the runner before being added. Version updates need new official
 hashes and a repeat of the extraction and Windows smoke checks.
 
 Upstream: [microsoft/PowerToys](https://github.com/microsoft/PowerToys).
+
+## Tray menu fix
+
+Raw standalone command-line mode does not create a tray menu in the pinned
+upstream release (`TrayMenu` stays null). `Start-Awake.ps1` creates/preserves
+Awake's own settings, sets mode 0, and launches with `--use-pt-config`. This
+initializes the native menu without running or installing the PowerToys suite.
+It hides only Awake's allocated console and preserves the native Exit option.
+Settings are stored in `%LOCALAPPDATA%\Microsoft\PowerToys\Awake\settings.json`.
+An independently running Awake from another installation is refused.
