@@ -14,7 +14,7 @@ The earlier **v0.1.1** preview remains available for Awake only.
 
 - Awake ARM64: validated in the Windows 11 UTM VM, including power requests,
   timed expiry, startup Off, hidden console, and native tray On/Off behavior.
-- Awake x64: installation succeeded in a user-reported test on an x86-family
+- Awake x64: v0.1.1 installation succeeded in a user-reported test on an x86-family
   Windows machine. Desktop launch and power-request checks also passed under
   Windows 11 ARM64 emulation. Startup on that machine has not yet been reported.
 - 32-bit x86 packages are not provided; packages support x64 and ARM64.
@@ -33,10 +33,11 @@ Settings UI: utilities use their native settings files and any bundled editors.
 
 ## One-line install
 
-Run in Windows PowerShell; no GitHub account or GitHub CLI is required:
+Install **Awake only** in Windows PowerShell; no GitHub account or GitHub CLI
+is required:
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/benjweaver/powertoys-individual/v0.2.0/Install.ps1))) -Apps Awake,ColorPicker,FancyZones
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/benjweaver/powertoys-individual/v0.2.0/Install.ps1))) -Apps Awake
 ```
 
 The installer detects ARM64/x64, checks pinned hashes and Microsoft signatures,
@@ -46,6 +47,12 @@ hidden. `-NoStartup` disables startup; `-NoLaunch` skips launching immediately.
 No admin rights, Python, or 7-Zip are needed for prebuilt packages.
 
 ## Preview install and uninstall options
+
+To install several utilities at once:
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/benjweaver/powertoys-individual/v0.2.0/Install.ps1))) -Apps Awake,ColorPicker,FancyZones
+```
 
 The same one-line installer accepts `-List`, `-Apps All`, and `-Uninstall`.
 For locally built ZIPs, add `-PackageDirectory` to the saved installer script.

@@ -613,7 +613,7 @@
     "graceful_quit": true,
     "status": "passed"
   },
-  "user_reported": "Awake installation succeeded on an x86-family Windows machine; physical startup not reported",
+  "user_reported": "Awake v0.1.1 installation succeeded on an x86-family Windows machine; physical startup not reported",
   "installer_uninstaller": {
     "checks": [
       "AlwaysOnTop installed and registered",
@@ -631,5 +631,23 @@
     "uninstall_receipt_mismatch": true,
     "uninstall_path_traversal": true,
     "user_file_preservation": true
+  },
+  "public_release": {
+    "public_assets": true,
+    "selected_uninstall": true,
+    "awake_off_and_startup": true,
+    "public_bootstrap": true,
+    "repeated_uninstall": true,
+    "status": "passed"
+  },
+  "awake_v0_2_0": {
+    "status": "passed",
+    "startup_shortcut": true,
+    "starts_off": true,
+    "console_hidden": true,
+    "on_creates_request": true,
+    "off_releases_request": true,
+    "power_plan_unchanged": true,
+    "checked_at_utc": "2026-10-04T03:16:36.1053063Z"
   }
 }
