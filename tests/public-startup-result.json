@@ -1,0 +1,10 @@
+{
+    "status":  "passed",
+    "startup_shortcut":  true,
+    "starts_off":  true,
+    "console_hidden":  true,
+    "on_creates_request":  true,
+    "off_releases_request":  true,
+    "power_plan_unchanged":  true,
+    "checked_at_utc":  "2026-10-04T01:30:19.9523768Z"
+}
