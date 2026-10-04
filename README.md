@@ -16,6 +16,32 @@ No PowerToys runner, settings application, shell extensions, services, or other
 utility executables are included. Awake does need some shared PowerToys libraries
 and the bundled .NET runtime. The ARM64 output is approximately 205 MiB.
 
+## One-line install (private preview)
+
+In Windows PowerShell, with [GitHub CLI](https://cli.github.com/) installed and
+signed in to an account with access to this private repo:
+
+```powershell
+& ([scriptblock]::Create((gh api repos/benjweaver/powertoys-individual/contents/Install.ps1?ref=v0.1.0 -H 'Accept: application/vnd.github.raw+json' | Out-String))) -Apps Awake
+```
+
+The installer detects ARM64/x64, downloads only the selected app's portable
+release, checks its pinned archive hash, every runtime/launcher hash, and
+Microsoft's executable signature, then installs under
+`%LOCALAPPDATA%\PowerToysIndividual`. It adds a Start Menu shortcut and enables
+per-user startup. Awake starts **Off**, with its console hidden.
+No admin rights or Python/7-Zip are needed to install the prebuilt package.
+
+`-NoStartup` leaves startup disabled; `-NoLaunch` skips launching it immediately.
+`-Apps` accepts a list, but **Awake is the only currently supported utility**;
+unknown names are rejected before downloading or changing anything. Additional
+utilities need a package recipe and validation before being added to the catalog.
+
+For a new Windows machine, install GitHub CLI once with
+`winget install --id GitHub.cli -e`, reopen PowerShell, and authenticate with
+`gh auth login` using its browser flow. The private preview relies on that
+existing sign-in and never asks for a password or copies credentials to the VM.
+
 ## Build
 
 Requirements: Python 3.10+ and official [7-Zip](https://www.7-zip.org/download.html).

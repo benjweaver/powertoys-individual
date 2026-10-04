@@ -1,0 +1,11 @@
+{
+    "status":  "passed",
+    "architecture_detection":  "arm64",
+    "per_user_install":  true,
+    "idempotent_reinstall":  true,
+    "duplicate_names_deduplicated":  true,
+    "unsupported_app_rejected":  true,
+    "corrupt_archive_rejected":  true,
+    "rejected_installs_preserve_receipt":  true,
+    "checked_at_utc":  "2026-10-04T01:20:42.2165802Z"
+}
