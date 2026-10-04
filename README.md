@@ -1,41 +1,86 @@
 # PowerToys Individual
 
 Run selected Microsoft PowerToys utilities without installing the entire suite.
-The first recipe packages **Awake**, using unmodified binaries from Microsoft's
-official release. This is a community packaging experiment, not an official
-Microsoft product.
+Packages use Microsoft's unmodified utility binaries, selected dependencies, and
+small launchers from this project. This is a community project, not an official
+Microsoft product. The installer extracts Microsoft's suite installer without
+executing it and leaves out the full PowerToys runner and Settings application.
 
 ## Status
 
-- Awake ARM64: validated in the Windows 11 UTM VM, including desktop launch, power requests, timed expiry, startup Off, hidden console, and On/Off behavior.
-- Awake x64: installation succeeded in a user-reported test on an x86-family Windows machine. Desktop launch and power-request smoke tests also passed under Windows 11 ARM64 emulation. Startup on that machine has not yet been reported.
-- 32-bit x86 packages are not provided; the installer supports x64 and ARM64.
-- Other utilities: not supported yet. Each needs its own dependency and standalone-launch review.
+**v0.2.0 preview** adds individual packages for every utility in PowerToys
+v0.101.2362.0, plus individual Mouse Utilities options and uninstall support.
+The earlier **v0.1.1** preview remains available for Awake only.
 
-The suite installer is downloaded as a source archive, **never executed**.
-No PowerToys runner, settings application, shell extensions, services, or other
-utility executables are included. Awake does need some shared PowerToys libraries
-and the bundled .NET runtime. The ARM64 output is approximately 205 MiB.
+- Awake ARM64: validated in the Windows 11 UTM VM, including power requests,
+  timed expiry, startup Off, hidden console, and native tray On/Off behavior.
+- Awake x64: installation succeeded in a user-reported test on an x86-family
+  Windows machine. Desktop launch and power-request checks also passed under
+  Windows 11 ARM64 emulation. Startup on that machine has not yet been reported.
+- 32-bit x86 packages are not provided; packages support x64 and ARM64.
+- Preview: 34 module launch, activation, and shutdown smoke checks passed on
+  ARM64 (Command Palette after a dependency fix) and x64 under ARM64 emulation.
+  Command Not Found loaded in a fresh PowerShell 7 session. Always On Top
+  pin/unpin and Peek shortcut passthrough passed functional checks.
+- Installer/uninstaller round trips passed for live tray hosts, Explorer integration,
+  Command Palette, and Command Not Found, including startup cleanup and preservation.
+  Details are in [the validation report](validation/windows11-v0.2.0.json).
+
+These checks establish limited VM behavior. Physical sleep, multiple monitors,
+networked Mouse Without Borders, hardware-specific display controls, and each
+utility's full feature set still need validation. The preview has no standalone
+Settings UI: utilities use their native settings files and any bundled editors.
 
 ## One-line install
 
 Run in Windows PowerShell; no GitHub account or GitHub CLI is required:
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/benjweaver/powertoys-individual/v0.1.1/Install.ps1))) -Apps Awake
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/benjweaver/powertoys-individual/v0.2.0/Install.ps1))) -Apps Awake,ColorPicker,FancyZones
 ```
 
-The installer detects ARM64/x64, downloads only the selected app's portable
-release, checks its pinned archive hash, every runtime/launcher hash, and
-Microsoft's executable signature, then installs under
-`%LOCALAPPDATA%\PowerToysIndividual`. It adds a Start Menu shortcut and enables
-per-user startup. Awake starts **Off**, with its console hidden.
-No admin rights or Python/7-Zip are needed to install the prebuilt package.
+The installer detects ARM64/x64, checks pinned hashes and Microsoft signatures,
+and installs under `%LOCALAPPDATA%\PowerToysIndividual`. It adds a Start Menu
+shortcut and enables per-user startup. Awake starts **Off**, with its console
+hidden. `-NoStartup` disables startup; `-NoLaunch` skips launching immediately.
+No admin rights, Python, or 7-Zip are needed for prebuilt packages.
 
-`-NoStartup` leaves startup disabled; `-NoLaunch` skips launching it immediately.
-`-Apps` accepts a list, but **Awake is the only currently supported utility**;
-unknown names are rejected before downloading or changing anything. Additional
-utilities need a package recipe and validation before being added to the catalog.
+## Preview install and uninstall options
+
+The same one-line installer accepts `-List`, `-Apps All`, and `-Uninstall`.
+For locally built ZIPs, add `-PackageDirectory` to the saved installer script.
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/benjweaver/powertoys-individual/v0.2.0/Install.ps1))) -Apps Awake,ColorPicker -Uninstall
+```
+
+With a saved copy of the installer:
+
+```powershell
+# See every utility and its notes without installing anything.
+.\Install.ps1 -List
+.\Install.ps1 -Apps Awake,ColorPicker,FancyZones
+.\Install.ps1 -Apps All
+
+# Remove selected utilities, or every installed utility from this project.
+.\Install.ps1 -Apps Awake,ColorPicker -Uninstall
+.\Install.ps1 -Apps All -Uninstall
+```
+
+Each installed preview utility also has its own entry in Windows **Settings →
+Apps → Installed apps**, with an Uninstall action. Uninstall closes that utility
+and removes owned package files, shortcuts, profile entries, and registrations.
+It preserves user settings, user-added files, and shared PowerShell/framework
+installations. User-added package files are moved into a `Preserved-*` folder
+beside the removed version, so they do not block a later reinstall. If Explorer
+holds a file open, sign out and back in and retry;
+the uninstall entry remains available and startup is disabled.
+
+Exit the full PowerToys suite before installing or removing individual utilities.
+Avoid running the suite and individual packages together: they share Microsoft's
+settings locations and integration names. Command Not Found needs PowerShell
+7.4 or newer and installs pinned Microsoft modules from PowerShell Gallery.
+Command Palette registers its own signed MSIX and required framework packages.
 
 ## Build
 
@@ -52,6 +97,30 @@ An optional `--installer /path/to/official.exe` uses a cached download. The buil
 pins PowerToys v0.101.2362.0 and checks the official release asset's SHA-256 before
 extracting anything. It refuses unknown layouts and missing required dependencies.
 Existing output directories are never overwritten.
+
+### Build the preview catalog
+
+Build the small host on Windows with Visual Studio 2022 C++ Build Tools,
+ARM64/x64 tools, and the Windows SDK:
+
+```bat
+native\build.cmd arm64
+native\build.cmd x64
+```
+
+The build script defaults to `C:\BuildTools`. If Visual Studio is elsewhere,
+pass its `vcvarsall.bat` path as the second argument.
+
+For each architecture, run the catalog builder (repeat with x64 paths):
+
+```sh
+python3 tools/build_many.py --arch arm64 --installer /path/to/PowerToysUserSetup-arm64.exe --seven-zip /path/to/7zz --cache work/upstream-payload-arm64 --host /path/to/PowerToysIndividual.exe --output dist/arm64
+python3 tools/release_catalog.py --arm64 dist/arm64 --x64 dist/x64
+```
+
+The host loads only the selected utility modules and exposes tray activation,
+enable/disable, bundled editors, and the native settings folder. Utility
+packages include only their selected runtime dependencies and legal notices.
 
 ## Use on Windows
 
@@ -74,9 +143,9 @@ Awake.cmd --time-limit=3600 --display-on=true
 ```
 
 No admin access or PowerToys installation is needed. Keep the files together.
-Awake can write logs/settings to its normal local app-data directory. To remove
-it, disable startup, exit Awake through the tray, and remove its package folder.
-Startup is enabled in the test VM; new packages require the user to enable it.
+Awake writes logs/settings to its normal local app-data directory. For the
+v0.1.1 stable package, disable startup, exit Awake through the tray, and remove
+its package folder. The preview adds automatic uninstall as described above.
 For command-line behavior see [Microsoft's Awake documentation](https://learn.microsoft.com/en-us/windows/powertoys/awake).
 
 ## Validate
@@ -120,8 +189,8 @@ The upstream installer omits a few optional satellite resources and
 `createdump.exe`; the recipe preserves the same omissions. It includes the full
 runtime described by Awake rather than attempting unsupported .NET trimming.
 
-Downloads and build output stay outside Git. Future recipes should prove they
-work without the runner before being added. Version updates need new official
+Downloads and build output stay outside Git. New recipes must be reviewed and
+validated without the runner. Version updates need new official
 hashes and a repeat of the extraction and Windows smoke checks.
 
 Upstream: [microsoft/PowerToys](https://github.com/microsoft/PowerToys).

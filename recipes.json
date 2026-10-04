@@ -1,0 +1,518 @@
+{
+  "Awake": {
+    "modules": [
+      "PowerToys.AwakeModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.Awake.exe"
+    ],
+    "assets": [
+      "Assets/Awake"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": "Starts Off at sign-in; uses native tray menu."
+  },
+  "AdvancedPaste": {
+    "modules": [
+      "PowerToys.AdvancedPasteModuleInterface.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.AdvancedPaste.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/AdvancedPaste"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": "AI features need separately configured providers; local formats do not."
+  },
+  "AlwaysOnTop": {
+    "modules": [
+      "PowerToys.AlwaysOnTopModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.AlwaysOnTop.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "ColorPicker": {
+    "modules": [
+      "PowerToys.ColorPicker.dll"
+    ],
+    "executables": [
+      "PowerToys.ColorPickerUI.exe"
+    ],
+    "assets": [
+      "Assets/ColorPicker"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "CommandNotFound": {
+    "modules": [],
+    "executables": [],
+    "assets": [
+      "WinUI3Apps/Assets/Settings/Scripts"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": "Uses Microsoft.WinGet.CommandNotFound in PowerShell 7; installs its own profile entry."
+  },
+  "CommandPalette": {
+    "modules": [
+      "PowerToys.CmdPalModuleInterface.dll"
+    ],
+    "executables": [],
+    "assets": [
+      "WinUI3Apps/CmdPal"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": "Registers only Microsoft Command Palette and its framework dependency as per-user AppX packages."
+  },
+  "CropAndLock": {
+    "modules": [
+      "PowerToys.CropAndLockModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.CropAndLock.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "EnvironmentVariables": {
+    "modules": [
+      "WinUI3Apps/PowerToys.EnvironmentVariablesModuleInterface.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.EnvironmentVariables.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/EnvironmentVariables"
+    ],
+    "extras": [],
+    "editor": "WinUI3Apps/PowerToys.EnvironmentVariables.exe",
+    "notes": ""
+  },
+  "FancyZones": {
+    "modules": [
+      "PowerToys.FancyZonesModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.FancyZones.exe",
+      "PowerToys.FancyZonesEditor.exe",
+      "FancyZonesCLI.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": "PowerToys.FancyZonesEditor.exe",
+    "notes": "Multi-monitor behavior needs physical hardware validation.",
+    "editor_event": "Local\\FancyZones-ToggleEditorEvent-1e174338-06a3-472b-874d-073b21c62f14"
+  },
+  "FileExplorerAddons": {
+    "modules": [
+      "PowerToys.powerpreview.dll"
+    ],
+    "executables": [
+      "PowerToys.SvgPreviewHandler.exe",
+      "PowerToys.SvgThumbnailProvider.exe",
+      "PowerToys.MarkdownPreviewHandler.exe",
+      "PowerToys.MonacoPreviewHandler.exe",
+      "PowerToys.PdfPreviewHandler.exe",
+      "PowerToys.PdfThumbnailProvider.exe",
+      "PowerToys.GcodePreviewHandler.exe",
+      "PowerToys.GcodeThumbnailProvider.exe",
+      "PowerToys.BgcodePreviewHandler.exe",
+      "PowerToys.BgcodeThumbnailProvider.exe",
+      "PowerToys.StlThumbnailProvider.exe",
+      "PowerToys.QoiPreviewHandler.exe",
+      "PowerToys.QoiThumbnailProvider.exe"
+    ],
+    "assets": [
+      "Assets/Monaco"
+    ],
+    "extras": [
+      "PowerToys.SvgPreviewHandlerCpp.dll",
+      "PowerToys.SvgThumbnailProviderCpp.dll",
+      "PowerToys.MarkdownPreviewHandlerCpp.dll",
+      "PowerToys.PdfPreviewHandlerCpp.dll",
+      "PowerToys.PdfThumbnailProviderCpp.dll",
+      "PowerToys.GcodePreviewHandlerCpp.dll",
+      "PowerToys.GcodeThumbnailProviderCpp.dll",
+      "PowerToys.BgcodePreviewHandlerCpp.dll",
+      "PowerToys.BgcodeThumbnailProviderCpp.dll",
+      "PowerToys.StlThumbnailProviderCpp.dll",
+      "PowerToys.QoiPreviewHandlerCpp.dll",
+      "PowerToys.QoiThumbnailProviderCpp.dll",
+      "PowerToys.MonacoPreviewHandlerCpp.dll"
+    ],
+    "editor": null,
+    "notes": "Per-user preview/thumbnail registration; Explorer may need to reopen."
+  },
+  "FileLocksmith": {
+    "modules": [
+      "WinUI3Apps/PowerToys.FileLocksmithExt.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.FileLocksmithUI.exe",
+      "FileLocksmithCLI.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/FileLocksmith"
+    ],
+    "extras": [
+      "WinUI3Apps/FileLocksmithContextMenuPackage.msix",
+      "WinUI3Apps/PowerToys.FileLocksmithContextMenu.dll"
+    ],
+    "editor": null,
+    "notes": ""
+  },
+  "GrabAndMove": {
+    "modules": [
+      "PowerToys.GrabAndMoveModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.GrabAndMove.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "Hosts": {
+    "modules": [
+      "WinUI3Apps/PowerToys.HostsModuleInterface.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.Hosts.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/Hosts"
+    ],
+    "extras": [],
+    "editor": "WinUI3Apps/PowerToys.Hosts.exe",
+    "notes": "Editing the system hosts file requires elevation."
+  },
+  "ImageResizer": {
+    "modules": [
+      "WinUI3Apps/PowerToys.ImageResizerExt.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.ImageResizer.exe",
+      "WinUI3Apps/PowerToys.ImageResizerCLI.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/ImageResizer"
+    ],
+    "extras": [
+      "WinUI3Apps/ImageResizerContextMenuPackage.msix",
+      "WinUI3Apps/PowerToys.ImageResizerContextMenu.dll"
+    ],
+    "editor": null,
+    "notes": ""
+  },
+  "KeyboardManager": {
+    "modules": [
+      "PowerToys.KeyboardManager.dll"
+    ],
+    "executables": [
+      "KeyboardManagerEngine/PowerToys.KeyboardManagerEngine.exe",
+      "WinUI3Apps/PowerToys.KeyboardManagerEditorUI.exe",
+      "KeyboardManagerEditor/PowerToys.KeyboardManagerEditor.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/KeyboardManager",
+      "WinUI3Apps/Assets/KeyboardManagerEditor"
+    ],
+    "extras": [],
+    "editor": "WinUI3Apps/PowerToys.KeyboardManagerEditorUI.exe",
+    "notes": "",
+    "editor_event": "Local\\PowerToysOpenNewKeyboardManagerEvent-9c1d2e3f-4b5a-6c7d-8e9f-0a1b2c3d4e5f"
+  },
+  "LightSwitch": {
+    "modules": [
+      "PowerToys.LightSwitchModuleInterface.dll"
+    ],
+    "executables": [
+      "LightSwitchService/PowerToys.LightSwitchService.exe"
+    ],
+    "assets": [
+      "LightSwitchService"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "MouseUtilities": {
+    "modules": [
+      "PowerToys.FindMyMouse.dll",
+      "PowerToys.MouseHighlighter.dll",
+      "WinUI3Apps/PowerToys.MouseJump.dll",
+      "PowerToys.MousePointerCrosshairs.dll",
+      "PowerToys.CursorWrap.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.MouseJump.WinUI3.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/MouseJump"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "FindMyMouse": {
+    "modules": [
+      "PowerToys.FindMyMouse.dll"
+    ],
+    "executables": [],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "MouseHighlighter": {
+    "modules": [
+      "PowerToys.MouseHighlighter.dll"
+    ],
+    "executables": [],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "MouseJump": {
+    "modules": [
+      "WinUI3Apps/PowerToys.MouseJump.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.MouseJump.WinUI3.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/MouseJump"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "MousePointerCrosshairs": {
+    "modules": [
+      "PowerToys.MousePointerCrosshairs.dll"
+    ],
+    "executables": [],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "CursorWrap": {
+    "modules": [
+      "PowerToys.CursorWrap.dll"
+    ],
+    "executables": [],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "MouseWithoutBorders": {
+    "modules": [
+      "PowerToys.MouseWithoutBordersModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.MouseWithoutBorders.exe",
+      "PowerToys.MouseWithoutBordersHelper.exe",
+      "PowerToys.MouseWithoutBordersService.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": "Network sharing requires two physical PCs and Windows firewall configuration; not validated by one VM."
+  },
+  "NewPlus": {
+    "modules": [
+      "WinUI3Apps/PowerToys.NewPlus.ShellExtension.dll"
+    ],
+    "executables": [],
+    "assets": [
+      "WinUI3Apps/Assets/NewPlus"
+    ],
+    "extras": [
+      "WinUI3Apps/NewPlusPackage.msix",
+      "WinUI3Apps/PowerToys.NewPlus.ShellExtension.win10.dll"
+    ],
+    "editor": null,
+    "notes": "Native New+ per-user Explorer context menu registration."
+  },
+  "Peek": {
+    "modules": [
+      "WinUI3Apps/PowerToys.Peek.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.Peek.UI.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/Peek"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "PowerDisplay": {
+    "modules": [
+      "PowerToys.PowerDisplayModuleInterface.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.PowerDisplay.exe",
+      "WinUI3Apps/PowerToys.PowerDisplay.Cli.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/PowerDisplay"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": "Brightness/DDC controls need a supported physical display."
+  },
+  "PowerRename": {
+    "modules": [
+      "WinUI3Apps/PowerToys.PowerRenameExt.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.PowerRename.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/PowerRename"
+    ],
+    "extras": [
+      "WinUI3Apps/PowerRenameContextMenuPackage.msix",
+      "WinUI3Apps/PowerToys.PowerRenameContextMenu.dll"
+    ],
+    "editor": null,
+    "notes": ""
+  },
+  "PowerToysRun": {
+    "modules": [
+      "PowerToys.Launcher.dll"
+    ],
+    "executables": [
+      "PowerToys.PowerLauncher.exe"
+    ],
+    "assets": [
+      "Assets/PowerLauncher",
+      "RunPlugins"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": "The PowerToys plugin only exposes installed utilities; no full-suite runner is installed."
+  },
+  "QuickAccent": {
+    "modules": [
+      "PowerToys.PowerAccentModuleInterface.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.PowerAccent.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "RegistryPreview": {
+    "modules": [
+      "WinUI3Apps/PowerToys.RegistryPreviewExt.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.RegistryPreview.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/RegistryPreview"
+    ],
+    "extras": [],
+    "editor": "WinUI3Apps/PowerToys.RegistryPreview.exe",
+    "notes": ""
+  },
+  "ScreenRuler": {
+    "modules": [
+      "WinUI3Apps/PowerToys.MeasureToolModuleInterface.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.MeasureToolUI.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "ShortcutGuide": {
+    "modules": [
+      "WinUI3Apps/PowerToys.ShortcutGuideModuleInterface.dll"
+    ],
+    "executables": [
+      "WinUI3Apps/PowerToys.ShortcutGuide.exe"
+    ],
+    "assets": [
+      "WinUI3Apps/Assets/ShortcutGuide"
+    ],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "TextExtractor": {
+    "modules": [
+      "PowerToys.PowerOCRModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.PowerOCR.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "WindowHopper": {
+    "modules": [
+      "PowerToys.AltWindowCycle.dll"
+    ],
+    "executables": [],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  },
+  "Workspaces": {
+    "modules": [
+      "PowerToys.WorkspacesModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.WorkspacesEditor.exe",
+      "PowerToys.WorkspacesLauncher.exe",
+      "PowerToys.WorkspacesLauncherUI.exe",
+      "PowerToys.WorkspacesWindowArranger.exe",
+      "PowerToys.WorkspacesSnapshotTool.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": "PowerToys.WorkspacesEditor.exe",
+    "notes": "",
+    "editor_event": "Local\\Workspaces-LaunchEditorEvent-a55ff427-cf62-4994-a2cd-9f72139296bf"
+  },
+  "ZoomIt": {
+    "modules": [
+      "PowerToys.ZoomItModuleInterface.dll"
+    ],
+    "executables": [
+      "PowerToys.ZoomIt.exe"
+    ],
+    "assets": [],
+    "extras": [],
+    "editor": null,
+    "notes": ""
+  }
+}

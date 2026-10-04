@@ -1,0 +1,635 @@
+{
+  "environment": "Windows 11 ARM64 UTM VM; x64 runs under Windows emulation",
+  "upstream": "v0.101.2362.0",
+  "scope": "Module signature, enable, activation/editor launch, disable, host shutdown; not complete feature validation",
+  "arm64_initial": {
+    "current": "",
+    "architecture": "arm64",
+    "checked_at_utc": "2026-10-04T02:14:59.2482100Z",
+    "results": [
+      {
+        "app": "AdvancedPaste",
+        "error": "",
+        "elapsed_seconds": 10.69,
+        "child_processes": [
+          "PowerToys.AdvancedPaste"
+        ],
+        "passed": true
+      },
+      {
+        "app": "AlwaysOnTop",
+        "error": "",
+        "elapsed_seconds": 5.58,
+        "child_processes": [
+          "PowerToys.AlwaysOnTop"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ColorPicker",
+        "error": "",
+        "elapsed_seconds": 8.09,
+        "child_processes": [
+          "PowerToys.ColorPickerUI"
+        ],
+        "passed": true
+      },
+      {
+        "app": "CommandPalette",
+        "error": "Deployment failed with HRESULT: 0x80073D02, The package could not be installed because resources it modifies are currently in use.\r\n\r\nerror 0x80073D02: Unable to install because the following apps need to be closed Microsoft.WidgetsPlatformRuntime_1.6.19.0_arm64__8wekyb3d8bbwe MicrosoftWindows.Client.WebExperience_526.21100.40.0_arm64__cw5n1h2txyewy.\n\nNOTE: For additional information, look for [ActivityId] a33230c8-53c2-0000-53ef-33a3c253dd01 in the Event Log or use the command line Get-AppPackageLog -ActivityID a33230c8-53c2-0000-53ef-33a3c253dd01\n",
+        "elapsed_seconds": 13.25,
+        "child_processes": [],
+        "passed": false
+      },
+      {
+        "app": "CropAndLock",
+        "error": "",
+        "elapsed_seconds": 5.47,
+        "child_processes": [
+          "PowerToys.CropAndLock"
+        ],
+        "passed": true
+      },
+      {
+        "app": "CursorWrap",
+        "error": "",
+        "elapsed_seconds": 5.22,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "EnvironmentVariables",
+        "error": "",
+        "elapsed_seconds": 5.42,
+        "child_processes": [
+          "PowerToys.EnvironmentVariables"
+        ],
+        "passed": true
+      },
+      {
+        "app": "FancyZones",
+        "error": "",
+        "elapsed_seconds": 5.58,
+        "child_processes": [
+          "PowerToys.FancyZones",
+          "PowerToys.FancyZonesEditor"
+        ],
+        "passed": true
+      },
+      {
+        "app": "FileExplorerAddons",
+        "error": "",
+        "elapsed_seconds": 5.56,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "FileLocksmith",
+        "error": "",
+        "elapsed_seconds": 6.13,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "FindMyMouse",
+        "error": "",
+        "elapsed_seconds": 5.22,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "GrabAndMove",
+        "error": "",
+        "elapsed_seconds": 6.29,
+        "child_processes": [
+          "PowerToys.GrabAndMove"
+        ],
+        "passed": true
+      },
+      {
+        "app": "Hosts",
+        "error": "",
+        "elapsed_seconds": 5.48,
+        "child_processes": [
+          "PowerToys.Hosts"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ImageResizer",
+        "error": "",
+        "elapsed_seconds": 6.04,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "KeyboardManager",
+        "error": "",
+        "elapsed_seconds": 5.65,
+        "child_processes": [
+          "PowerToys.KeyboardManagerEditorUI",
+          "PowerToys.KeyboardManagerEngine"
+        ],
+        "passed": true
+      },
+      {
+        "app": "LightSwitch",
+        "error": "",
+        "elapsed_seconds": 8.36,
+        "child_processes": [
+          "PowerToys.LightSwitchService"
+        ],
+        "passed": true
+      },
+      {
+        "app": "MouseHighlighter",
+        "error": "",
+        "elapsed_seconds": 6.07,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "MouseJump",
+        "error": "",
+        "elapsed_seconds": 6.46,
+        "child_processes": [
+          "PowerToys.MouseJump.WinUI3"
+        ],
+        "passed": true
+      },
+      {
+        "app": "MousePointerCrosshairs",
+        "error": "",
+        "elapsed_seconds": 5.32,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "MouseUtilities",
+        "error": "",
+        "elapsed_seconds": 5.78,
+        "child_processes": [
+          "PowerToys.MouseJump.WinUI3"
+        ],
+        "passed": true
+      },
+      {
+        "app": "MouseWithoutBorders",
+        "error": "",
+        "elapsed_seconds": 5.36,
+        "child_processes": [
+          "PowerToys.MouseWithoutBorders"
+        ],
+        "passed": true
+      },
+      {
+        "app": "NewPlus",
+        "error": "",
+        "elapsed_seconds": 6.13,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "Peek",
+        "error": "",
+        "elapsed_seconds": 6.92,
+        "child_processes": [
+          "PowerToys.Peek.UI"
+        ],
+        "passed": true
+      },
+      {
+        "app": "PowerDisplay",
+        "error": "",
+        "elapsed_seconds": 5.53,
+        "child_processes": [
+          "PowerToys.PowerDisplay"
+        ],
+        "passed": true
+      },
+      {
+        "app": "PowerRename",
+        "error": "",
+        "elapsed_seconds": 6.19,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "PowerToysRun",
+        "error": "",
+        "elapsed_seconds": 6.2,
+        "child_processes": [
+          "PowerToys.PowerLauncher"
+        ],
+        "passed": true
+      },
+      {
+        "app": "QuickAccent",
+        "error": "",
+        "elapsed_seconds": 5.36,
+        "child_processes": [
+          "PowerToys.PowerAccent"
+        ],
+        "passed": true
+      },
+      {
+        "app": "RegistryPreview",
+        "error": "",
+        "elapsed_seconds": 6.29,
+        "child_processes": [
+          "PowerToys.RegistryPreview"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ScreenRuler",
+        "error": "",
+        "elapsed_seconds": 5.38,
+        "child_processes": [
+          "PowerToys.MeasureToolUI"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ShortcutGuide",
+        "error": "",
+        "elapsed_seconds": 7.48,
+        "child_processes": [
+          "PowerToys.ShortcutGuide"
+        ],
+        "passed": true
+      },
+      {
+        "app": "TextExtractor",
+        "error": "",
+        "elapsed_seconds": 6.97,
+        "child_processes": [
+          "PowerToys.PowerOCR"
+        ],
+        "passed": true
+      },
+      {
+        "app": "WindowHopper",
+        "error": "",
+        "elapsed_seconds": 5.53,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "Workspaces",
+        "error": "",
+        "elapsed_seconds": 6.2,
+        "child_processes": [
+          "PowerToys.WorkspacesEditor"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ZoomIt",
+        "error": "",
+        "elapsed_seconds": 7.28,
+        "child_processes": [
+          "PowerToys.ZoomIt"
+        ],
+        "passed": true
+      }
+    ],
+    "status": "failed",
+    "validation": "module lifecycle and activation smoke; physical hardware features not covered"
+  },
+  "arm64_targeted_after_dependency_fix": {
+    "status": "passed",
+    "results": [
+      {
+        "app": "CommandPalette",
+        "passed": true
+      },
+      {
+        "app": "CommandNotFound",
+        "passed": true
+      }
+    ]
+  },
+  "x64": {
+    "current": "",
+    "architecture": "x64",
+    "checked_at_utc": "2026-10-04T02:27:57.8137340Z",
+    "results": [
+      {
+        "app": "AdvancedPaste",
+        "error": "",
+        "elapsed_seconds": 13.89,
+        "child_processes": [
+          "PowerToys.AdvancedPaste"
+        ],
+        "passed": true
+      },
+      {
+        "app": "AlwaysOnTop",
+        "error": "",
+        "elapsed_seconds": 6.49,
+        "child_processes": [
+          "PowerToys.AlwaysOnTop"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ColorPicker",
+        "error": "",
+        "elapsed_seconds": 7,
+        "child_processes": [
+          "PowerToys.ColorPickerUI"
+        ],
+        "passed": true
+      },
+      {
+        "app": "CommandPalette",
+        "error": "",
+        "elapsed_seconds": 11.53,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "CropAndLock",
+        "error": "",
+        "elapsed_seconds": 5.68,
+        "child_processes": [
+          "PowerToys.CropAndLock"
+        ],
+        "passed": true
+      },
+      {
+        "app": "CursorWrap",
+        "error": "",
+        "elapsed_seconds": 5.37,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "EnvironmentVariables",
+        "error": "",
+        "elapsed_seconds": 6.66,
+        "child_processes": [
+          "PowerToys.EnvironmentVariables"
+        ],
+        "passed": true
+      },
+      {
+        "app": "FancyZones",
+        "error": "",
+        "elapsed_seconds": 6.51,
+        "child_processes": [
+          "PowerToys.FancyZones",
+          "PowerToys.FancyZonesEditor"
+        ],
+        "passed": true
+      },
+      {
+        "app": "FileExplorerAddons",
+        "error": "",
+        "elapsed_seconds": 6.03,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "FileLocksmith",
+        "error": "",
+        "elapsed_seconds": 5.54,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "FindMyMouse",
+        "error": "",
+        "elapsed_seconds": 5.5,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "GrabAndMove",
+        "error": "",
+        "elapsed_seconds": 5.52,
+        "child_processes": [
+          "PowerToys.GrabAndMove"
+        ],
+        "passed": true
+      },
+      {
+        "app": "Hosts",
+        "error": "",
+        "elapsed_seconds": 6.06,
+        "child_processes": [
+          "PowerToys.Hosts"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ImageResizer",
+        "error": "",
+        "elapsed_seconds": 8.04,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "KeyboardManager",
+        "error": "",
+        "elapsed_seconds": 7.16,
+        "child_processes": [
+          "PowerToys.KeyboardManagerEditorUI",
+          "PowerToys.KeyboardManagerEngine"
+        ],
+        "passed": true
+      },
+      {
+        "app": "LightSwitch",
+        "error": "",
+        "elapsed_seconds": 9.48,
+        "child_processes": [
+          "PowerToys.LightSwitchService"
+        ],
+        "passed": true
+      },
+      {
+        "app": "MouseHighlighter",
+        "error": "",
+        "elapsed_seconds": 6.07,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "MouseJump",
+        "error": "",
+        "elapsed_seconds": 7.33,
+        "child_processes": [
+          "PowerToys.MouseJump.WinUI3"
+        ],
+        "passed": true
+      },
+      {
+        "app": "MousePointerCrosshairs",
+        "error": "",
+        "elapsed_seconds": 5.42,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "MouseUtilities",
+        "error": "",
+        "elapsed_seconds": 7.35,
+        "child_processes": [
+          "PowerToys.MouseJump.WinUI3"
+        ],
+        "passed": true
+      },
+      {
+        "app": "MouseWithoutBorders",
+        "error": "",
+        "elapsed_seconds": 5.61,
+        "child_processes": [
+          "PowerToys.MouseWithoutBorders"
+        ],
+        "passed": true
+      },
+      {
+        "app": "NewPlus",
+        "error": "",
+        "elapsed_seconds": 5.58,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "Peek",
+        "error": "",
+        "elapsed_seconds": 7.91,
+        "child_processes": [
+          "PowerToys.Peek.UI"
+        ],
+        "passed": true
+      },
+      {
+        "app": "PowerDisplay",
+        "error": "",
+        "elapsed_seconds": 6.09,
+        "child_processes": [
+          "PowerToys.PowerDisplay"
+        ],
+        "passed": true
+      },
+      {
+        "app": "PowerRename",
+        "error": "",
+        "elapsed_seconds": 5.47,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "PowerToysRun",
+        "error": "",
+        "elapsed_seconds": 5.8,
+        "child_processes": [
+          "PowerToys.PowerLauncher"
+        ],
+        "passed": true
+      },
+      {
+        "app": "QuickAccent",
+        "error": "",
+        "elapsed_seconds": 5.56,
+        "child_processes": [
+          "PowerToys.PowerAccent"
+        ],
+        "passed": true
+      },
+      {
+        "app": "RegistryPreview",
+        "error": "",
+        "elapsed_seconds": 5.99,
+        "child_processes": [
+          "PowerToys.RegistryPreview"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ScreenRuler",
+        "error": "",
+        "elapsed_seconds": 5.99,
+        "child_processes": [
+          "PowerToys.MeasureToolUI"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ShortcutGuide",
+        "error": "",
+        "elapsed_seconds": 7.78,
+        "child_processes": [
+          "PowerToys.ShortcutGuide"
+        ],
+        "passed": true
+      },
+      {
+        "app": "TextExtractor",
+        "error": "",
+        "elapsed_seconds": 7.28,
+        "child_processes": [
+          "PowerToys.PowerOCR"
+        ],
+        "passed": true
+      },
+      {
+        "app": "WindowHopper",
+        "error": "",
+        "elapsed_seconds": 5.49,
+        "child_processes": [],
+        "passed": true
+      },
+      {
+        "app": "Workspaces",
+        "error": "",
+        "elapsed_seconds": 5.85,
+        "child_processes": [
+          "PowerToys.WorkspacesEditor"
+        ],
+        "passed": true
+      },
+      {
+        "app": "ZoomIt",
+        "error": "",
+        "elapsed_seconds": 7.31,
+        "child_processes": [
+          "PowerToys.ZoomIt"
+        ],
+        "passed": true
+      }
+    ],
+    "status": "passed",
+    "validation": "module lifecycle and activation smoke; physical hardware features not covered"
+  },
+  "functional_hotkeys": {
+    "always_on_top_pin": true,
+    "peek_passthrough": true,
+    "always_on_top_unpin": true,
+    "checked_at_utc": "2026-10-04T02:45:04.3493225Z",
+    "graceful_quit": true,
+    "status": "passed"
+  },
+  "user_reported": "Awake installation succeeded on an x86-family Windows machine; physical startup not reported",
+  "installer_uninstaller": {
+    "checks": [
+      "AlwaysOnTop installed and registered",
+      "FileLocksmith installed and registered",
+      "CommandPalette installed and registered",
+      "CommandNotFound installed and registered",
+      "Live hosts started; Always On Top startup enabled",
+      "Repeated uninstall succeeds; user file preserved; owned AppX and profile entry removed"
+    ],
+    "status": "passed"
+  },
+  "rejection_tests": {
+    "unknown_app_before_changes": true,
+    "corrupt_archive_before_installation": true,
+    "uninstall_receipt_mismatch": true,
+    "uninstall_path_traversal": true,
+    "user_file_preservation": true
+  }
+}
